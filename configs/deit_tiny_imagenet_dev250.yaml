@@ -1,0 +1,24 @@
+# Development Protocol: Pretrained DeiT-Tiny on 250 ImageNet Validation Images
+# Fine-grained retention sweep (8 points per layer) and full forward latency benchmarking
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  name: "imagenet_val"
+  data_dir: "./data"
+  num_samples: 250
+  batch_size: 25
+  seed: 42
+
+experiment:
+  seed: 42
+  layers: [2, 4, 6, 8, 10, 12]
+  # Fine-grained sweep of 8 retention ratios:
+  retention_ratios: [1.0, 0.875, 0.75, 0.625, 0.50, 0.375, 0.25, 0.125]
+  scorers:
+    - "random"
+    - "prediction_kl_approximate"
+    - "attention_cls"
+  measure_latency: true
+  output_dir: "./results/deit_tiny_imagenet_dev250"

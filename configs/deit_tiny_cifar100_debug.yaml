@@ -1,0 +1,23 @@
+# Debug Mode Configuration using CIFAR-100
+# Note: CIFAR-100 is strictly for debugging/pipeline development as specified in research integrity rules.
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  name: "cifar100"
+  data_dir: "./data"
+  num_samples: 50
+  batch_size: 16
+  seed: 42
+
+experiment:
+  seed: 42
+  layers: [2, 4, 6, 8, 10, 12]
+  retention_ratios: [1.0, 0.75, 0.5, 0.25, 0.1]
+  scorers:
+    - "random"
+    - "prediction_kl_approximate"
+    - "attention_cls"
+  measure_latency: true
+  output_dir: "./results/cifar100_debug"

@@ -1,0 +1,22 @@
+# Primary Research Protocol: Pretrained DeiT-Tiny on ImageNet Validation Subset
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  name: "imagenet_val"
+  data_dir: "./data/imagenet"
+  num_samples: 500
+  batch_size: 32
+  seed: 42
+
+experiment:
+  seed: 42
+  layers: [2, 4, 6, 8, 10, 12]
+  retention_ratios: [1.0, 0.75, 0.5, 0.25, 0.1]
+  scorers:
+    - "random"
+    - "prediction_kl_approximate"
+    - "attention_cls"
+  measure_latency: true
+  output_dir: "./results/deit_tiny_imagenet_500"

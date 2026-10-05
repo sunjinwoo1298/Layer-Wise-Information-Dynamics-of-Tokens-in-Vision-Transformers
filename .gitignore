@@ -1,0 +1,171 @@
+# =========================
+# Data & Datasets (root level)
+# =========================
+/data/
+/datasets/
+/raw_data/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# Archives and compressed data
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.gz
+*.7z
+*.rar
+
+# =========================
+# PyTorch / ML Experiment Outputs & Caches (root level)
+# =========================
+/checkpoints/
+/runs/
+/outputs/
+/results/
+/logs/
+/wandb/
+/tensorboard/
+/lightning_logs/
+/profiler/
+.hydra/
+mlruns/
+.cache/
+torch_cache/
+timm_cache/
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+credentials.json
+secrets.json
+secrets.yaml
+
+# =========================
+# Python & Bytecode
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.manifest
+*.spec
+
+# =========================
+# Virtual Environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+conda/
+
+# =========================
+# Jupyter Notebooks
+# =========================
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+.trash/
+
+# =========================
+# Build & Packaging
+# =========================
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =========================
+# Testing, Linting & Coverage
+# =========================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pyre/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+*.cover
+.tox/
+.nox/
+
+# =========================
+# IDE & Editor Configurations
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# =========================
+# Temporary & Scratch Files
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+scratch/
+Pasted text*.txt
+
