@@ -1,0 +1,25 @@
+# Phase 2 smoke test: progressive multi-layer patch-token pruning (infrastructure only).
+# Layer keys are 1-BASED layer numbers (same as Phase 1): key l = "after l blocks, keep exactly k patch tokens".
+# Patch tokens only (CLS is always kept). Layer 12 (final block) is not a valid pruning point.
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  name: "imagenet_val"   # falls back to the cached data/imagenet_val_250.pt; use "synthetic" for offline runs
+  data_dir: "./data"
+  num_samples: 10
+  batch_size: 5
+  seed: 42
+
+pruning:
+  schedule:
+    2: 98
+    4: 49
+  scorer: random        # random | prediction_kl_approx | cls_attention
+  seed: 42
+
+experiment:
+  measure_latency: true
+  latency_runs: 5
+  output_dir: "./results/phase2_progressive_smoke"

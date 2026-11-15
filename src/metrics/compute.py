@@ -156,6 +156,18 @@ class ComputeEstimator:
             normalized_flops=normalized,
         )
 
+    def compute_progressive_flops(self, patch_tokens_per_block: list) -> Dict[str, float]:
+        """
+        Analytic FLOPs for a progressive schedule (additive Phase 2 helper; Phase 1 maths unchanged).
+        patch_tokens_per_block[i] = number of patch tokens that block i (0-indexed) processes.
+        """
+        assert len(patch_tokens_per_block) == self.num_layers
+        embed_flops = 2 * 3 * self.patch_size[0] * self.patch_size[1] * self.d * self.N
+        blocks = sum(self._block_flops(self.num_prefix + n) for n in patch_tokens_per_block)
+        head_flops = 2 * self.d * self.num_classes
+        total = float(embed_flops + blocks + head_flops)
+        return {"total_flops": total, "normalized_flops": total / self.baseline_flops}
+
     def _execute_full_forward_pass(
         self,
         model_wrapper: nn.Module,
