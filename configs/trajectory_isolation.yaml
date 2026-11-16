@@ -1,0 +1,27 @@
+# Phase 2: isolate final token count from the reduction trajectory at matched FLOPs (evaluation only).
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+dataset:                                   # exact class-diverse subset (verified against saved manifests, full SHA-256)
+  parquet_dir: "./data/imagenet_val_parquet"
+  subset_cache: "./data/imagenet_class_diverse_subset.pt"
+  images_per_class: 2
+  seed: 42
+  batch_size: 25
+study:
+  seed: 42
+  scorer: cls_attention
+  budgets: [0.40, 0.50, 0.60, 0.70]
+  match_tolerance: 0.01
+  first_layer: 2
+  patterns: ["2-6-10", "2-8-10"]
+  floors: [8, 16, 24, 32]                  # 8 = diagnostic
+  primary_floors: [16, 24, 32]
+  control_min_deviation: 8
+  measure_latency: true
+  latency_warmup: 1
+  latency_timed_runs: 5
+  latency_batches: 3
+  prev_min_token_dir: "./results/phase2_minimum_token_ablation"
+  prev_class_diverse_dir: "./results/phase2_class_diverse_validation"
+  output_dir: "./results/phase2_final_token_trajectory_isolation"

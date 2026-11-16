@@ -1,0 +1,42 @@
+# Phase 2: class-diverse validation and allocation-robustness study (evaluation only).
+# Layer keys are 1-based (same as Phase 1/2): key l = after l blocks, keep exactly k PATCH tokens (CLS always kept).
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  parquet_dir: "./data/imagenet_val_parquet"            # ImageNet-1k val shards (evanarlian/imagenet_1k_resized_256)
+  subset_cache: "./data/imagenet_class_diverse_subset.pt"
+  images_per_class: 2          # 2 x 1000 classes = 2000 images (class-balanced); sampling seed below
+  seed: 42
+  batch_size: 25
+
+validation:
+  seed: 42
+  extra_seeds_random: [43, 44]
+  budgets: [0.40, 0.50, 0.60, 0.70]
+  match_tolerance: 0.01                 # +-1 pp of baseline FLOPs vs the one-stage anchor (fixed in advance)
+  families: [geometric, equal_drop]
+  primary_first_layer: 2
+  secondary_first_layers: [4]
+  primary_scorer: cls_attention
+  scorers_primary_layer: [cls_attention, random, prediction_kl_approx]
+  scorers_secondary_layer: [cls_attention]
+  reduced_structures: ["2-6", "2-6-10"]  # secondary scorers run on anchors + these structures only
+  kl_budgets: [0.50, 0.60]               # prediction_kl_approx (~100x slower) only at these budgets
+  measure_latency: true
+  latency_warmup: 1
+  latency_timed_runs: 5
+  latency_batches: 3
+  kl_latency_runs: 3
+  kl_latency_batches: 1
+  previous_stage_ablation_dir: "./results/phase2_stage_ablation"
+  output_dir: "./results/phase2_class_diverse_validation"
+
+structures:
+  2:
+    two:   [[2, 4], [2, 6], [2, 8]]
+    three: [[2, 4, 8], [2, 6, 10], [2, 8, 10]]
+  4:
+    two:   [[4, 8]]
+    three: [[4, 6, 8]]

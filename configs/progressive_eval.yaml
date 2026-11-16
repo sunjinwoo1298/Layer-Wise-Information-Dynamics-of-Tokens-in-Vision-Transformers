@@ -1,0 +1,37 @@
+# Phase 2: controlled progressive-vs-single pruning evaluation (evaluation only; no optimizer).
+# Layer keys are 1-based (same as Phase 1/Phase 2): key l = after l blocks, keep exactly k PATCH tokens (CLS always kept).
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+
+dataset:
+  name: "imagenet_val"
+  data_dir: "./data"       # uses the same cached 250-image file as Phase 1, in stored order (no shuffling)
+  num_samples: 250
+  batch_size: 25           # same as Phase 1
+  seed: 42
+
+evaluation:
+  seed: 42                 # primary seed, all scorers
+  extra_seeds_random: [43, 44]   # random scorer only (others are deterministic)
+  scorers: [random, cls_attention, prediction_kl_approx]
+  auto_match: true         # add single-layer controls whose analytic FLOPs match each progressive schedule
+  match_tolerance: 0.02    # 2 percentage points of baseline FLOPs; fixed before comparing results
+  single_layers: [2, 4, 6, 8, 10]
+  measure_latency: true
+  latency_warmup: 1
+  latency_timed_runs: 3
+  output_dir: "./results/phase2_progressive_eval"
+
+# Required candidate schedules + extra progressive shapes (candidates, NOT known-optimal).
+schedules:
+  no_pruning: {}
+  early_single: {2: 98}
+  middle_single: {6: 98}
+  late_single: {10: 98}
+  early_progressive: {2: 98, 4: 49}
+  gradual_progressive: {2: 147, 6: 98, 10: 49}
+  delayed_progressive: {2: 196, 4: 98, 8: 49}
+  mild_progressive: {4: 147, 8: 98}
+  aggressive_progressive: {2: 98, 4: 73, 6: 49, 8: 24}
+  late_progressive: {6: 98, 8: 73, 10: 49}

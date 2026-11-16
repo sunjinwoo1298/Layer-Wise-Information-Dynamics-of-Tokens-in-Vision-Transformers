@@ -1,0 +1,32 @@
+# Phase 2: minimum final-token constraint and allocation robustness (evaluation only).
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+dataset:                                   # exactly the class-diverse subset (verified against its manifest hash)
+  parquet_dir: "./data/imagenet_val_parquet"
+  subset_cache: "./data/imagenet_class_diverse_subset.pt"
+  images_per_class: 2
+  seed: 42
+  batch_size: 25
+study:
+  seed: 42
+  extra_seeds_random: [43, 44]
+  budgets: [0.40, 0.50, 0.60, 0.70]
+  match_tolerance: 0.01
+  first_layer: 2
+  floors: [8, 16, 24, 32]                  # 8 = diagnostic
+  primary_floors: [16, 24, 32]
+  primary_scorer: cls_attention
+  secondary_scorers: [random, prediction_kl_approx]
+  secondary_structures: ["2-6", "2-6-10"]
+  secondary_floors: [16, 32]
+  random_budgets: [0.40, 0.50]
+  kl_budgets: [0.50]
+  measure_latency: true
+  latency_warmup: 1
+  latency_timed_runs: 5
+  latency_batches: 3
+  kl_latency_runs: 3
+  kl_latency_batches: 1
+  previous_dir: "./results/phase2_class_diverse_validation"
+  output_dir: "./results/phase2_minimum_token_ablation"
