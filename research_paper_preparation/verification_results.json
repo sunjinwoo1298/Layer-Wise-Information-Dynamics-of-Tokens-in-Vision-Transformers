@@ -1,0 +1,1196 @@
+{
+ "integrity_and_statistical_checks": [
+  {
+   "check": "frozen_method_configs.json matches its recorded SHA-256",
+   "ok": true,
+   "detail": "171fa7be2cc4bd511a9aa491da8c475c480d198f1a5070287a5a8eebd134e5b6"
+  },
+  {
+   "check": "all 32+ dependency hashes listed in frozen_method_configs.json still match",
+   "ok": true,
+   "detail": "32 files; changed=[]"
+  },
+  {
+   "check": "phase4_analysis_freeze.json matches its recorded SHA-256",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "analysis script matches frozen analysis hash",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "analysis-freeze dependencies unchanged",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "original protocol freeze file hash equals recorded value",
+   "ok": true,
+   "detail": "full 17-file verification is performed by scripts/phase4_freeze_protocol.py --verify (see audit_summary.md)"
+  },
+  {
+   "check": "prediction arrays unchanged since the analysis (hashes equal analysis_manifest input_sha256)",
+   "ok": true,
+   "detail": "125 arrays"
+  },
+  {
+   "check": "analysis output files unchanged since the analysis (hashes equal analysis_manifest output_sha256)",
+   "ok": true,
+   "detail": "25 files"
+  },
+  {
+   "check": "analysis manifest records the frozen analysis script hash",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "completion marker status == completed; environment record status == completed; not dry run",
+   "ok": true,
+   "detail": "marker time 2026-11-17 11:02:52; elapsed 6246.7 s; n=2985"
+  },
+  {
+   "check": "run used the frozen configuration hash",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "single run: exactly 125 arrays and no FAILURE_RECORD",
+   "ok": true,
+   "detail": "125 files"
+  },
+  {
+   "check": "P4-CONFIRM decoded cache present on disk (data/p4_confirm_cache.pt), written by the Gate 5 loader at run start; not deleted by this audit",
+   "ok": true,
+   "detail": "cache mtime 2026-11-17 09:18:40 IST; marker start 2026-11-17 11:02:52"
+  },
+  {
+   "check": "run log ends with 'DONE completed' and contains no Traceback",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "analysis n equals confirm manifest size (2,985); confirm manifest hash matches frozen identity",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "temporal order: all prediction arrays written before the analysis outputs",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_agree] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "evit_B40__vs_U_2-8-10"
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_evit_vs_U_top1] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "evit_B40__vs_U_2-8-10"
+  },
+  {
+   "check": "[exploratory_native_track_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 36)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 36)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_native_track_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_agree] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "tome_B40__vs_U_2-8-10"
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[exploratory_tome_vs_U_top1] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "tome_B40__vs_U_2-8-10"
+  },
+  {
+   "check": "[primary_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 16)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 16)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[primary_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 24)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 24)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[replication_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_agree] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "evit_B40__vs_C16_2-8-10"
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_C_top1] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "evit_B40__vs_C16_2-8-10"
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_P_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_evit_vs_S_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_agree] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "tome_B40__vs_C16_2-8-10"
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 7)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_C_top1] undefined cells are excluded from the Holm family and listed",
+   "ok": true,
+   "detail": "tome_B40__vs_C16_2-8-10"
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 8)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_P_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] Holm-adjusted p recomputed from the stored raw p within the family (family size 4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_agree] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] n=2985 in every defined cell",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] diff_pp == (method_count - comparator_count)/n*100",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] direction label consistent with sign of diff (method minus comparator)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] bootstrap CI brackets the point estimate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] McNemar p equals exact test on stored discordant counts (|dp|<1e-6; CSV rounded to 6 dp)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] discordant counts reconcile with count difference (b - c == method_count - comparator_count)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] Holm-adjusted p recomputed from the stored raw p within the family (family size 4)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[secondary_tome_vs_S_top1] significance flag == (Holm-adjusted p < 0.05)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "primary families have 16 defined cells each; replication families 24",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "claim_checks": [
+  {
+   "claim": "ToMe vs geometric: all 8 cells better, agreement +9.2..+18.6 pp, all Holm-significant",
+   "ok": true,
+   "detail": "9.246..18.593"
+  },
+  {
+   "claim": "ToMe vs geometric: top-1 +3.4..+12.9 pp, all Holm-significant",
+   "ok": true,
+   "detail": "3.417..12.898"
+  },
+  {
+   "claim": "EViT-style agreement: B40 worse (-8.6/-7.7), B50 n.s., B60/B70 better (+3.3..+4.0); 14/16 Holm-significant",
+   "ok": true,
+   "detail": "14/16"
+  },
+  {
+   "claim": "EViT-style top-1: B40 -7.6/-6.8, B50 n.s., B60/B70 +1.7..+2.2; 14/16 Holm-significant",
+   "ok": true,
+   "detail": "14/16"
+  },
+  {
+   "claim": "Replication agreement: mean +0.62 pp; 15 positive / 9 negative; 1/24 Holm-significant (B40, 2-8-10, f32, +2.48)",
+   "ok": true,
+   "detail": "mean 0.6170"
+  },
+  {
+   "claim": "Replication top-1: 3/24 Holm-significant; mean +0.52 pp",
+   "ok": true,
+   "detail": "3/24 mean 0.5165"
+  },
+  {
+   "claim": "ToMe beats P f16 / S / C f16 / U in every defined cell, all Holm-significant (agree)",
+   "ok": true,
+   "detail": "defined cells: 8/4/7/7"
+  },
+  {
+   "claim": "ToMe beats P f16 / S / C f16 / U in every defined cell, all Holm-significant (top1)",
+   "ok": true,
+   "detail": "defined cells: 8/4/7/7"
+  },
+  {
+   "claim": "EViT-style vs proposed f16 (agreement): 6 better / 2 worse by point estimate; 6 of 8 Holm-significant",
+   "ok": true,
+   "detail": "significant directions: {'method>comparator': 4, 'method<comparator': 2}"
+  },
+  {
+   "claim": "EViT-style vs single-stage (agreement): better in 3 of 4 cells",
+   "ok": true,
+   "detail": "[['evit_B40__vs_S', -3.652, True], ['evit_B50__vs_S', 5.595, True], ['evit_B60__vs_S', 8.04, True], ['evit_B70__vs_S', 6.901, True]]"
+  },
+  {
+   "claim": "Native track: 36 comparisons per metric; DiffRate better in 35 of 36 and 33 Holm-significant (both metrics)",
+   "ok": true,
+   "detail": {
+    "agree": [
+     35,
+     33
+    ],
+    "top1": [
+     35,
+     33
+    ]
+   }
+  },
+  {
+   "claim": "ToMe B50: agreement 83.0 %, top-1 65.3 %",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "claim": "At 57.9 % FLOPs: DiffRate 0.7 agreement 90.7 %, ToMe (DR0.7 cell) 89.7 %",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "claim": "Unpruned reference top-1 = 2,086/2,985 (69.89 %) (derived from the saved reference array; not part of the official analysis tables)",
+   "ok": true,
+   "detail": "2086"
+  }
+ ],
+ "n_checks": 201,
+ "all_checks_pass": true,
+ "n_claims": 14,
+ "all_claims_pass": false,
+ "native_track_tome_vs_diffrate": {
+  "agree": [
+   {
+    "cell": "DR0.6__vs_ToMe",
+    "method_count": 2644,
+    "comparator_count": 2576,
+    "diff_pp": 2.2781,
+    "boot_ci_lo_pp": 1.005,
+    "boot_ci_hi_pp": 3.5176,
+    "holm_adj_p": 0.002,
+    "significant_holm": true,
+    "method_flops_pct": 52.1945,
+    "comparator_flops_pct": 52.3442
+   },
+   {
+    "cell": "DR0.7__vs_ToMe",
+    "method_count": 2707,
+    "comparator_count": 2676,
+    "diff_pp": 1.0385,
+    "boot_ci_lo_pp": -0.1675,
+    "boot_ci_hi_pp": 2.2111,
+    "holm_adj_p": 0.2786,
+    "significant_holm": false,
+    "method_flops_pct": 57.9177,
+    "comparator_flops_pct": 57.9948
+   },
+   {
+    "cell": "DR0.8__vs_ToMe",
+    "method_count": 2766,
+    "comparator_count": 2750,
+    "diff_pp": 0.536,
+    "boot_ci_lo_pp": -0.5025,
+    "boot_ci_hi_pp": 1.5745,
+    "holm_adj_p": 0.5337,
+    "significant_holm": false,
+    "method_flops_pct": 64.4732,
+    "comparator_flops_pct": 64.2879
+   },
+   {
+    "cell": "DR0.9__vs_ToMe",
+    "method_count": 2849,
+    "comparator_count": 2864,
+    "diff_pp": -0.5025,
+    "boot_ci_lo_pp": -1.3065,
+    "boot_ci_hi_pp": 0.335,
+    "holm_adj_p": 0.5337,
+    "significant_holm": false,
+    "method_flops_pct": 71.924,
+    "comparator_flops_pct": 72.2624
+   }
+  ],
+  "top1": [
+   {
+    "cell": "DR0.6__vs_ToMe",
+    "method_count": 2033,
+    "comparator_count": 1979,
+    "diff_pp": 1.809,
+    "boot_ci_lo_pp": 0.804,
+    "boot_ci_hi_pp": 2.8476,
+    "holm_adj_p": 0.0031,
+    "significant_holm": true,
+    "method_flops_pct": 52.1945,
+    "comparator_flops_pct": 52.3442
+   },
+   {
+    "cell": "DR0.7__vs_ToMe",
+    "method_count": 2056,
+    "comparator_count": 2027,
+    "diff_pp": 0.9715,
+    "boot_ci_lo_pp": 0.0,
+    "boot_ci_hi_pp": 1.9095,
+    "holm_adj_p": 0.1541,
+    "significant_holm": false,
+    "method_flops_pct": 57.9177,
+    "comparator_flops_pct": 57.9948
+   },
+   {
+    "cell": "DR0.8__vs_ToMe",
+    "method_count": 2065,
+    "comparator_count": 2053,
+    "diff_pp": 0.402,
+    "boot_ci_lo_pp": -0.4355,
+    "boot_ci_hi_pp": 1.2395,
+    "holm_adj_p": 0.7571,
+    "significant_holm": false,
+    "method_flops_pct": 64.4732,
+    "comparator_flops_pct": 64.2879
+   },
+   {
+    "cell": "DR0.9__vs_ToMe",
+    "method_count": 2073,
+    "comparator_count": 2078,
+    "diff_pp": -0.1675,
+    "boot_ci_lo_pp": -0.7705,
+    "boot_ci_hi_pp": 0.4355,
+    "holm_adj_p": 0.7571,
+    "significant_holm": false,
+    "method_flops_pct": 71.924,
+    "comparator_flops_pct": 72.2624
+   }
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+# Phase 3: budget-aware token allocation ("LS-Chain + verify"). Evaluation only; frozen DeiT-Tiny, existing CLS-attention scorer.
+# Hyper-parameters below are hashed into frozen_schedules.json; changing them after calibration makes later stages refuse to run.
+model:
+  name: "deit_tiny_patch16_224"
+  pretrained: true
+data:
+  parquet_dir: "./data/imagenet_val_parquet"
+  subset_cache: "./data/imagenet_class_diverse_subset.pt"      # parent 2,000-image subset (manifest SHA-256 56279dc3...263aa67)
+  confirm_cache: "./data/imagenet_confirmatory_2000.pt"        # fresh, disjoint confirmatory set (2 per class)
+  n_cal: 500
+  split_seed: 42
+  confirm_seed: 4242
+  batch_size: 25
+study:
+  seed: 42
+  scorer: cls_attention
+  first_layer: 2
+  patterns: ["2-6-10", "2-8-10"]
+  budgets: [0.40, 0.50, 0.60, 0.70]
+  floors: [16, 24, 32]
+  match_tolerance: 0.01
+  grid: [16, 24, 32, 48, 64, 80, 96, 112, 128, 144, 164, 184]
+  top_m: 8
+  min_dist: 6
+  tie_eps: 0.002
+  bootstrap_stability: 10
+  proxy_validity_min_spearman: 0.6
+  latency_warmup: 1
+  latency_runs: 5
+  latency_batches: 3
+paths:
+  parent_dir: "./results/phase2_minimum_token_ablation"
+  class_diverse_dir: "./results/phase2_class_diverse_validation"
+  isolation_dir: "./results/phase2_final_token_trajectory_isolation"
+  output_dir: "./results/phase3_budget_aware_allocation"

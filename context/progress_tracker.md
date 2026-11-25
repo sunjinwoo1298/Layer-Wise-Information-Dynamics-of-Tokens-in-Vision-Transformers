@@ -78,3 +78,41 @@ _Last updated: 2026-11-15_
 - New: `src/experiments/trajectory_isolation.py` (exhaustive candidate enumeration, accuracy-blind control selection, full-SHA manifest verification, prior-schedule/result reproduction checks, predefined Holm families, result.md), `src/visualization/trajectory_plots.py`, `configs/trajectory_isolation.yaml`, `scripts/run_trajectory_isolation.py` (`--prepare-only`, `--smoke`), `tests/test_trajectory_isolation.py` (16 tests).
 - Tests: 94 passed (78 + 16). Smoke passed. Full run: 78 metric rows (32 controls), 0 failures; 30/30 prior schedules reproduce prior counts exactly.
 - Outputs: `results/phase2_final_token_trajectory_isolation/` (incl. `result.md`, `control_candidates.csv.gz`, `schedule_table.csv`, `run_manifest.json`).
+
+## Phase 3 – Budget-aware allocation: design stage (Gates 1–3 done; no model run yet)
+- Spec: `Features/phase3_budget_aware_algorithm_design_spec.md`. Added `scripts/phase3_evidence_audit.py` (recomputes ledger numbers from raw files) and `results/phase3_algorithm_design/{evidence_ledger.md, algorithm_design.md, audit_numbers.md/json}`.
+- Chosen design (for review): measured layer-sensitivity chain model + exact FLOPs-constrained solve with calibration verification of the top-8; 500/1,500 class-stratified split + proposed fresh confirmatory test set. Implementation (Gate 4+) not started pending review.
+
+## Phase 3 — Budget-aware allocation (LS-Chain + verify): implemented and evaluated
+- Done: evidence audit + design (`results/phase3_algorithm_design/`), implementation (`src/optimization/`, `src/experiments/budget_aware_allocation.py`, `src/data/phase3_splits.py`, `src/visualization/phase3_plots.py`, config, CLI, 21 tests), calibration (500 img), validation (1,500 img), freeze (SHA `b6d0103d…fe20`), fresh confirmatory (2,000 img, run once).
+- Outcome: mean +0.87 pp agreement vs geometric on confirmatory (+0.73 validation); 0 Holm-significant; superiority over geometric NOT established. Clearly better than single-stage and (where feasible) constrained equal-drop. No latency difference.
+- Details: `results/phase3_budget_aware_allocation/result.md` (hand-written conclusions at the end). Nothing committed.
+
+## Phase 4 — Benchmark against adaptive token-pruning methods (Gates 0–3 done; stopped before Gate 4)
+- Gate 0/1/2: audit, related-methods review, fidelity matrix, protocol frozen (`results/phase4_adaptive_method_benchmark/protocol_freeze.json`, sha256 file verified by `scripts/phase4_freeze_protocol.py --verify`). Splits: P4-DEV 1,990 / P4-CONFIRM 2,985 images, 995 classes (classes 0–4 exhausted by Phase 1 dev250).
+- Method set: ToMe (faithful adaptation), EViT-style training-free (reproduction-inspired, not EViT), DiffRate released DeiT-Tiny rates (supplementary native-budget track only). DynamicViT and official EViT: not compared (training/checkpoints).
+- Gate 3: new `src/phase4/` (engine, tome, evit_style, diffrate, selection, data with locked P4-CONFIRM), 15 new tests; full suite 130 passed. Official ToMe parity (isolated venv, timm 0.4.12): token counts identical for 201 configs, logits bit-identical, full-dev counts identical. DiffRate released lists executed on P4-DEV; target 1.0 has an ill-defined merge (logged, not repaired).
+- Errata found: Phase 3 reports print baseline vectors in string-sorted layer order and one Phase 3 hand-written sentence about geometric profile is wrong (`phase3_documentation_errata.md`; Phase 3 files untouched).
+- No P4-CONFIRM data touched. Nothing committed.
+
+## Phase 4 — Gate 4 (development evaluation, P4-DEV only) — complete, awaiting review (2026-11-17)
+- Selected ToMe (r, inflection) and EViT-style kappa per primary budget (40/50/60/70) and DiffRate native FLOPs (0.6-0.9) from every feasible candidate (84 unique evaluated on 1,990 dev images); selections, tie sets and all candidates in `results/phase4_adaptive_method_benchmark/gate4/` and `development_results.md`.
+- Phase 3 frozen schedules regenerated on P4-DEV (37 unique schedules); supplementary Phase 3 re-selection at DiffRate native caps on the fixed 500-image calibration subset, evaluated on 1,490 held-out dev images.
+- Latency/aux time measured as secondary (CPU, noisy). DiffRate target 1.0 excluded (diagnostic only).
+- `frozen_method_configs.json` SHA-256 c42717bf05e677e426c3422267f0d7f941a39ea30c07ac27733d1b8c269b706e; protocol freeze verified; 130 tests pass.
+- Disclosed deviation: a test unintentionally decoded P4-CONFIRM images into a cache (no model run, no statistics); cache deleted, test fixed (see protocol_amendments.md).
+- Development results are selection data, not confirmatory evidence. Gate 5 not started; needs explicit approval.
+
+### Phase 4 — Gate 4 close-out and Gate 5 preflight (2026-11-17)
+- Gate 4 accepted. P4-CONFIRM cache incident closed in `protocol_amendments.md` (images + labels were decoded/cached once by a test, never read; cache deleted; test isolated; loader now verifies frozen config bytes and dependency hashes). P4-CONFIRM retained; must be disclosed as a data-access deviation.
+- `frozen_method_configs.json` re-frozen with grid identity, split/manifest identities, calibration-subset identity, checkpoint SHA-256 and 32 dependency hashes: SHA-256 171fa7be2cc4bd511a9aa491da8c475c480d198f1a5070287a5a8eebd134e5b6. 131 tests pass; protocol freeze verified (17 files); `gate5_preflight.json` all checks pass. Gate 5 runner written and dry-run on 50 P4-DEV images only; NOT executed on P4-CONFIRM — awaiting explicit authorization.
+
+### Phase 4 — Gate 5 analysis frozen (P4-DEV validated; confirmatory run NOT authorized/started) (2026-11-17)
+- `scripts/phase4_gate5_analysis.py` (SHA-256 8b5e51041f297c1f6ad0bd2125c69c59993c1073bc0aabf7b58500019eb5df9d); freeze record `phase4_analysis_freeze.json` (SHA-256 e574c540e646217e1592dcfd94a959e9801666ec789c38a4d43befd7742aa2dc); documentation `analysis_documentation.md`.
+- P4-DEV pipeline validation: independent cross-check all pass (counts match Gate 4 records), reproducible byte-for-byte, 144 tests pass, Gate 5 preflight all checks pass; frozen_method_configs (171fa7be…) and original protocol freeze (895ee5fe…) unchanged; no marker/partial outputs.
+
+### Phase 4 — Gate 5 confirmatory run executed once (2026-11-17)
+Single P4-CONFIRM run completed (6,247 s, no failure). Frozen analysis run once. ToMe beats geometric in all 16 primary cells (Holm-significant); EViT-style worse at B40, null at B50, better at B60/B70; Phase 3 replication 1/24 Holm-significant (no broad superiority). See `results/phase4_adaptive_method_benchmark/confirmatory_results.md` and `confirmatory_analysis/`. Gate 6 (final report) pending.
+
+### Phase 4 — Gate 6 final report written (2026-11-17)
+`results/phase4_adaptive_method_benchmark/phase4_final_report.md`, `paper_claims_matrix.md`, `recommended_next_experiment.md`. Assessment: ToMe > geometric in all 16 primary cells; EViT-style budget-dependent; Phase 3 allocator no consistent advantage over geometric and not competitive with ToMe/DiffRate; no novelty claim; workshop (benchmark/negative-result) framing plausible, main-track not ready; next experiment proposed (sensitivity-guided per-layer merge schedules vs equal-effort ToMe, fresh confirmatory split). No paper drafted; nothing committed.

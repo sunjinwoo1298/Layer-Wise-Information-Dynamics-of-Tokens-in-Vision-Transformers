@@ -1,0 +1,23 @@
+engine,method,config,median_ms_per_img,iqr_ms,ratio_to_engine_ref,aux_ms_per_img
+phase4_explicit_attention,unpruned_reference,-,27.744,1.491,1.0,0.0
+phase4_explicit_attention,tome,"B40:[17, -0.5]",20.685,1.659,0.746,2.174
+phase4_explicit_attention,evit,B40:0.32,18.471,1.49,0.666,0.843
+phase4_explicit_attention,tome,"B50:[16, 0.0]",23.389,1.488,0.843,2.54
+phase4_explicit_attention,evit,B50:0.505,22.394,0.888,0.807,0.762
+phase4_explicit_attention,tome,"B60:[16, 0.5]",28.802,1.626,1.038,2.841
+phase4_explicit_attention,evit,B60:0.65,26.747,1.892,0.964,1.013
+phase4_explicit_attention,tome,"B70:[15, 1.0]",33.254,1.912,1.199,2.673
+phase4_explicit_attention,evit,B70:0.76,30.651,3.308,1.105,1.32
+phase4_explicit_attention,tome,"DR0.6:[15, 0.0]",26.457,2.272,0.954,2.721
+phase4_explicit_attention,evit,DR0.6:0.545,23.67,2.013,0.853,0.968
+phase4_explicit_attention,tome,"DR0.7:[17, 0.5]",28.986,2.853,1.045,2.798
+phase4_explicit_attention,evit,DR0.7:0.62,23.325,3.194,0.841,0.769
+phase4_explicit_attention,tome,"DR0.8:[14, 0.5]",24.201,3.214,0.872,2.819
+phase4_explicit_attention,evit,DR0.8:0.695,29.701,5.452,1.071,0.974
+phase4_explicit_attention,tome,"DR0.9:[14, 1.0]",35.327,6.834,1.273,3.395
+phase4_explicit_attention,evit,DR0.9:0.77,26.852,2.612,0.968,0.717
+phase4_explicit_attention,diffrate,DR0.6,27.478,13.143,0.99,3.881
+phase4_explicit_attention,diffrate,DR0.7,22.319,3.565,0.804,4.432
+phase4_explicit_attention,diffrate,DR0.8,33.037,6.639,1.191,5.927
+phase4_explicit_attention,diffrate,DR0.9,32.895,5.067,1.186,3.085
+phase1_3_progressive_pruner,unpruned_reference,-,31.788,13.317,1.0,0.0
